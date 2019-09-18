@@ -15,14 +15,14 @@ class AccountTableViewController: UITableViewController {
                                     balance : 0,
                                     interest : 0.01),
                     CheckingAccount( accountNumber : "123-123-1234",
-                                     balance : 1000,
+                                  balance : 1000,
                                      interest : 0.02),
                     CheckingAccount( accountNumber : "111-111-1111",
                                      balance : 1000000,
                                     interest : 0.02) ]
     
     
-    
+
     
     
 
@@ -62,7 +62,9 @@ class AccountTableViewController: UITableViewController {
 
         // Configure the cell...
         cell.account = accounts[indexPath.row]
-        cell.accountLabel.text = String(describing : accounts[indexPath.row])
+  //      cell.accountLabel.text = accounts[indexPath.row].accountNumber
+  //      cell.balanceLabel.text = String(accounts[indexPath.row].balance) //두문장이 반복되는 것을 한번에 처리하는 방법을 찾아본다. -> account 생성자인 didset을 만들어 그곳에 해주면 이 두문장은 필요없게됨
+        
 
         return cell
     }
