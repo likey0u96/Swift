@@ -28,7 +28,7 @@ class AccountTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
+/*    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         if(selected){
@@ -40,6 +40,8 @@ class AccountTableViewCell: UITableViewCell {
         }
         // Configure the view for the selected state
     }
+ 
+ */
     
     func updateAccount(){
         accountLabel.text = account.accountNumber //label도 바꾸어 주어야한다

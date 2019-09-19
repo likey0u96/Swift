@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17G65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gzX-Bd-3Lb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17G65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HP1-m4-qBw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Account Table View Controller-->
+        <!--Account List-->
         <scene sceneID="sLJ-Or-9aQ">
             <objects>
                 <tableViewController id="gzX-Bd-3Lb" customClass="AccountTableViewController" customModule="AccountSwitf" customModuleProvider="target" sceneMemberID="viewController">
@@ -55,6 +55,9 @@
                                         <constraint firstItem="F0e-N6-9de" firstAttribute="centerY" secondItem="AKC-GC-7jj" secondAttribute="centerY" id="b8G-uX-tjX"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="WL1-zV-Ed2" kind="show" identifier="ShowAccountDetailSegue" id="ghU-04-4MI"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -62,18 +65,19 @@
                             <outlet property="delegate" destination="gzX-Bd-3Lb" id="9dm-i0-Gfd"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Account List" id="qlx-oQ-YwV"/>
                     <connections>
                         <outlet property="balanceLabel" destination="ECU-Sc-TAR" id="qb5-bb-sZ3"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WkM-8D-oOb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="496.80000000000001" y="137.18140929535232"/>
+            <point key="canvasLocation" x="1368.8" y="106.59670164917542"/>
         </scene>
-        <!--View Controller-->
+        <!--Account Detail View Controller-->
         <scene sceneID="7mh-AZ-KZ3">
             <objects>
-                <viewController id="WL1-zV-Ed2" sceneMemberID="viewController">
+                <viewController id="WL1-zV-Ed2" customClass="AccountDetailViewController" customModule="AccountSwitf" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PWG-6E-4bt"/>
                         <viewControllerLayoutGuide type="bottom" id="xSA-yb-sI2"/>
@@ -82,8 +86,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eZu-se-6He">
-                                <rect key="frame" x="0.0" y="28" width="375" height="667"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eZu-se-6He" customClass="AccountViewController">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="DA0-7c-G8f">
                                         <rect key="frame" x="187.5" y="0.0" width="0.0" height="178.5"/>
@@ -130,7 +134,7 @@
                                                 <rect key="frame" x="112.5" y="0.0" width="150" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WpD-ew-Wkv">
                                                 <rect key="frame" x="0.0" y="60" width="375" height="30"/>
@@ -142,6 +146,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmp-g9-Kdr">
                                                         <rect key="frame" x="85.5" y="0.0" width="53" height="30"/>
                                                         <state key="normal" title="Deposit"/>
+                                                        <connections>
+                                                            <action selector="onDepositPressed:" destination="WL1-zV-Ed2" eventType="touchUpInside" id="bED-Pc-HTc"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="VzS-Ab-YbI">
                                                         <rect key="frame" x="138.5" y="0.0" width="85" height="30"/>
@@ -150,6 +157,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7H-WZ-dqT">
                                                         <rect key="frame" x="223.5" y="0.0" width="66" height="30"/>
                                                         <state key="normal" title="Withdraw"/>
+                                                        <connections>
+                                                            <action selector="onWithdrawPressed:" destination="WL1-zV-Ed2" eventType="touchUpInside" id="grk-Fb-24p"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="LFe-Vh-92q">
                                                         <rect key="frame" x="289.5" y="0.0" width="85.5" height="30"/>
@@ -182,17 +192,41 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eZu-se-6He" firstAttribute="top" secondItem="PWG-6E-4bt" secondAttribute="bottom" constant="8" id="5ts-Tc-7NE"/>
                             <constraint firstItem="eZu-se-6He" firstAttribute="centerY" secondItem="V8J-ri-tmO" secondAttribute="centerY" id="9AF-Ng-blX"/>
                             <constraint firstAttribute="width" secondItem="eZu-se-6He" secondAttribute="width" id="WvH-0z-yxP"/>
                             <constraint firstItem="eZu-se-6He" firstAttribute="height" secondItem="V8J-ri-tmO" secondAttribute="height" id="kuG-Nc-UQJ"/>
+                            <constraint firstItem="eZu-se-6He" firstAttribute="top" secondItem="V8J-ri-tmO" secondAttribute="top" id="o4i-On-kcv"/>
                             <constraint firstItem="eZu-se-6He" firstAttribute="centerX" secondItem="V8J-ri-tmO" secondAttribute="centerX" id="yHL-em-MAO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="accountNumberLabel" destination="mbi-l5-5bb" id="4uf-cO-q3X"/>
+                        <outlet property="amountTextFiled" destination="0NC-eT-Xmy" id="t0j-OR-xNv"/>
+                        <outlet property="balanceLabel" destination="8o4-Mv-f99" id="I8F-XO-Ru4"/>
+                        <outlet property="interestLabel" destination="kEk-NH-pDx" id="Ia8-B7-GwU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xUk-Ix-P2Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1222" y="107"/>
+            <point key="canvasLocation" x="2160.8000000000002" y="106.59670164917542"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nqS-5x-sn9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HP1-m4-qBw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tLs-gL-UM6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gzX-Bd-3Lb" kind="relationship" relationship="rootViewController" id="sw8-Tu-AGj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jbe-nc-GDl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="429.60000000000002" y="106.59670164917542"/>
         </scene>
     </scenes>
 </document>

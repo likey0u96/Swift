@@ -36,6 +36,10 @@ class AccountTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        (view as? UITableView)?.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -105,14 +109,44 @@ class AccountTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        //원하는 작업을 넣으면 됨
+        //모든 segue에 대해 이곳으로 들어옴 , 그래서 sugue마다 id를 부여해야함
+        super.prepare(for: segue, sender: sender)
+        
+        if(segue.identifier == "ShowAccountDetailSegue" ){
+            guard let selected = sender as? UITableViewCell else{
+                fatalError("segue sender dose not look correct.")
+            }
+            
+            //몇번째 꺼의 정보인지 가져올 수 있음
+            guard let indexPath = tableView.indexPath(for: selected) else{
+                fatalError("seleted entry is not in the account array")
 
+            }
+            
+            //guard를 쓰는 이유 : segue.destination이 as?이므로 null이 될 수도 있다. null이 되었을 때 else문은 수행하라(null이 아님을 보장)
+            guard let detailView = segue.destination as? AccountDetailViewController else {
+                fatalError("segue destination is not correct.")
+            }
+            detailView.account = accounts[indexPath.row]
+
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+

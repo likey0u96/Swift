@@ -15,7 +15,7 @@ class CheckingAccount : Account {
         super.init(accountNumber : accountNumber , balance : balance)  //상위 클래스의 생성자를 뒤에 호출해준다 (레이블은 필수!)
         
     }
-    private let interest : Double
+    internal let interest : Double
     
     override func aMonthHasPassed() {
         balance = Int(Double(balance) * (1 + interest))
@@ -25,7 +25,7 @@ class CheckingAccount : Account {
     
     
     
-    func withdtaw(amount: Int) -> Bool{
+    func withdraw(amount: Int) -> Bool{
         if(amount < balance){
             balance -= amount
             return true

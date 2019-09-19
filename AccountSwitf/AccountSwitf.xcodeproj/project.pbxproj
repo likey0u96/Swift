@@ -16,6 +16,7 @@
 		1E16B56B232F99A3002B074B /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E16B56A232F99A3002B074B /* Account.swift */; };
 		1E16B56D232F9F52002B074B /* CheckingAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E16B56C232F9F52002B074B /* CheckingAccount.swift */; };
 		1E16B571232FA705002B074B /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E16B570232FA705002B074B /* AccountTableViewCell.swift */; };
+		1EA140B523333DA900378816 /* AccountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA140B423333DA900378816 /* AccountDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		1E16B56A232F99A3002B074B /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		1E16B56C232F9F52002B074B /* CheckingAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckingAccount.swift; sourceTree = "<group>"; };
 		1E16B570232FA705002B074B /* AccountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
+		1EA140B423333DA900378816 /* AccountDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				1E16B56A232F99A3002B074B /* Account.swift */,
 				1E16B56C232F9F52002B074B /* CheckingAccount.swift */,
 				1E16B570232FA705002B074B /* AccountTableViewCell.swift */,
+				1EA140B423333DA900378816 /* AccountDetailViewController.swift */,
 			);
 			path = AccountSwitf;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EA140B523333DA900378816 /* AccountDetailViewController.swift in Sources */,
 				1E16B559232F92C0002B074B /* ViewController.swift in Sources */,
 				1E16B56D232F9F52002B074B /* CheckingAccount.swift in Sources */,
 				1E16B56B232F99A3002B074B /* Account.swift in Sources */,
@@ -320,6 +324,7 @@
 				1E16B567232F92C0002B074B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
